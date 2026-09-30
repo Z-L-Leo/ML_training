@@ -1,0 +1,15 @@
+name: Local Host Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+      - name: Test Conda
+        shell: powershell
+        run: |
+          conda --version
+          conda env list
+          conda run -n trl python --version
