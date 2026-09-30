@@ -13,3 +13,4 @@ jobs:
           conda --version
           conda env list
           conda run -n trl python --version
+          ls
