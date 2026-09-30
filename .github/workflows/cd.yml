@@ -7,15 +7,12 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      - name: Final Production Compile
-        run: gcc -O3 -o my_app main.c  # -O3 optimizes the code for production
-
-      - name: Run Production Release Script
+      - name: train and push
+        shell: powershell
         run: |
-          echo "Deploying my_app to production server..."
-          # Insert your deployment commands here (e.g., scp, docker push, ssh)
+          conda run -n trl python train_and_push.py

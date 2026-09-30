@@ -10,8 +10,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Test Conda
+      - name: git log
         shell: powershell
         run: |
           git log --graph --oneline
+
+
+      - name: Test Conda
+        shell: powershell
+        run: |
           conda run -n trl python train.py

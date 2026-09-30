@@ -1,4 +1,3 @@
-yaml
 name: Continuous Integration
 
 on:
@@ -9,13 +8,12 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      - name: Compile C Code
-        run: gcc -o my_app main.c
-
-      - name: Run Tests
-        run: ./my_app --test
+      - name: train
+        shell: powershell
+        run: |
+          conda run -n trl python train.py
