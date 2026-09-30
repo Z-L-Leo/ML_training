@@ -1,0 +1,21 @@
+yaml
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - '**'          # Matches every branch name you push
+      - '!main'       # Excludes the main branch (so CD handles main instead)
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Compile C Code
+        run: gcc -o my_app main.c
+
+      - name: Run Tests
+        run: ./my_app --test

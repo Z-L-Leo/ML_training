@@ -1,0 +1,21 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches:
+      - main  # Triggers immediately when code is merged into main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Final Production Compile
+        run: gcc -O3 -o my_app main.c  # -O3 optimizes the code for production
+
+      - name: Run Production Release Script
+        run: |
+          echo "Deploying my_app to production server..."
+          # Insert your deployment commands here (e.g., scp, docker push, ssh)
