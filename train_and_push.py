@@ -60,7 +60,6 @@ with open("config.yaml", "r") as f:
 
 config_dict['run_name']=run_name
 config_dict['hub_model_id']=f"Z-L-Leo/my-sft-model-{timestamp}"
-config_dict["push_to_hub"]=False
 
 sft_config = SFTConfig(**config_dict)
 
@@ -73,3 +72,5 @@ trainer = SFTTrainer(
 )
 trainer.train()
 print("=========training is finished ")
+trainer.push_to_hub()
+print("==========model has been pushed to huggging face repo")
