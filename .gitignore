@@ -1,2 +1,5 @@
 results/
 wandb/
+profiler_traces/
+output*.txt
+trace*.json
