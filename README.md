@@ -19,7 +19,8 @@ this command will train a model and push it to remote hugging face repo
 python train_and_push.py
 ```
 
-this command will profile the training process
+this command will profile the training process, <code>trace.json</code> will be in <code>profiler_traces</code>,
+open <code>trace.json</code> with  <code>chrome://tracing</code>
 ```sh
 python train_profiling.py
 ```
